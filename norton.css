@@ -1,0 +1,625 @@
+// Variables
+$blue: #009fbc;
+$dark-blue: #2e3740;
+$grey: #e9e9e9;
+$light-orange: #fef5e4;
+$orange: #ff9100;
+$radius: 2px;
+
+// Placeholder selectors
+%transition {transition: all .3s;}
+
+/*=Grid=*/
+.container {
+  margin: auto;
+  max-width: 60em;/*960px*/
+}
+.row {max-width: 100%;}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+[class*='bit-'] {
+  float: left;
+  padding: 0.3em;
+}
+.bit-1 {width: 100%;}
+.bit-2 {width: 50%;}
+.bit-3 {width: 33.33333%;}
+.bit-4 {width: 25%;}
+.bit-5 {width: 20%;}
+.bit-6 {width: 16.66667%;}
+.bit-7 {width: 14.28571%;}
+.bit-8 {width: 12.5%;}
+.bit-9 {width: 11.11111%;}
+.bit-10 {width: 10%;}
+.bit-11 {width: 9.09091%;}
+.bit-12 {width: 8.33333%;}
+.bit-25 {width: 25%;}
+.bit-40 {width: 40%;}
+.bit-60 {width: 60%;}
+.bit-75 {width: 75%;}
+@media (max-width: 30em) {
+  .bit-1,
+  .bit-2,
+  .bit-3,
+  .bit-4,
+  .bit-5,
+  .bit-6,
+  .bit-7,
+  .bit-8,
+  .bit-9,
+  .bit-10,
+  .bit-11,
+  .bit-12,
+  .bit-60,
+  .bit-75 {width: 100%;}
+}
+@media (min-width: 30em) and (max-width: 50em) {
+  .bit-4,
+  .bit-6,
+  .bit-8,
+  .bit-10,
+  .bit-12 {width: 50%;}
+  .bit-1,
+  .bit-2,
+  .bit-3,
+  .bit-5,
+  .bit-7,
+  .bit-9,
+  .bit-11 {width: 100%;}
+}
+@media (min-width: 50em) and (max-width: 68.75em) {
+  .bit-2,
+  .bit-7 {width: 100%;}
+  .bit-4,
+  .bit-8,
+  .bit-10,
+  .bit-12 {width: 50%;}
+}
+.center {
+  float: none;
+  margin: auto;
+} 
+/*=Typography=*/
+body {font: 16px 'Open sans', sans-serif;}
+h1 {
+  font: 300 3.25em 'Roboto', 'Open sans', sans-serif;
+  text-align: center;
+}
+header {line-height: 4.25;}
+.fa-angle-up {font-size: 5em;}
+.sec-main h1 {
+  font-size: 1.5em;
+  font-weight: 400;
+  text-align: left;
+  @media screen and (max-width: 30em) {text-align: center;}
+}
+.sec-main h2 {
+  font-size: 2.17em;
+  font-weight: 300;
+  line-height: 1.75;
+  @media screen and (max-width: 30em) {text-align: center;}
+}
+.sec-main p {
+  line-height: 1.5;
+  @media screen and (max-width: 30em) {text-align: center;}
+}
+.sec-main input {
+  font-size: 1.3em;
+  font-weight: 700;
+}
+.sec-main .bit-4:not(:first-child) button {
+  font-weight: 700;
+  text-shadow: 1px 0 2px #333;
+}
+.price {text-align: center;}
+.main-links {font-size: .85em;}
+.features-ul h2,
+.sec-features h3 {
+  font-weight: 700;
+  text-align: center;
+}
+.features-ul h2,
+.features-ul p,
+.grimefighter p,
+[class^="slide"] p,
+.sec-minions p,
+table {
+  font-size: .8em;
+  text-align: center;
+}
+footer {font-size: .8em;}
+.soc-media-ul a {vertical-align: top;}
+@media screen and (max-width: 37.5em) {
+  .nav-secondary {text-align: center;}
+}
+.grimefighter h2 {
+  font-size: 2.5em;
+  font-weight: 300;
+  text-align: center;
+}
+.grimefighter p,
+.technologies-content h2,
+.licensing h2,
+.licensing p {text-align: center;}
+.technologies-content h3 {text-align: left;}
+.sec-minions h2,
+.sec-minions h3,
+.sec-minions p {text-align: right;}
+th,
+.licensing h2,
+footer h2 {font-weight: 700;}
+tbody th {text-align: left;}
+.sec-minions h2,
+footer h2 {font-size: .9em;}
+.bold {
+  font-weight: 700;
+  text-align: center;
+}
+.sec-minions i {font-size: 8em;}
+/*=Layout=*/
+body {
+  background: url(https://i.imgur.com/VTD0aN8.jpg) no-repeat center center fixed;
+  color: #333;
+}
+*,
+*:before,
+*:after {box-sizing: border-box;}
+ul {list-style-type: none;}
+a {
+  text-decoration: none;
+  color: #333;
+}
+.wrapper {position: relative;}
+.sec-main,
+.sec-features,
+.sec-technologies,
+.sec-products {background: #fff;}
+.active {
+  background: $orange;
+  color: #fff;
+}
+.system,
+.licensing,
+.comparison,
+.sec-products,
+.sec-minions {padding: 3em 0;}
+.link-blue {
+  text-decoration: underline;
+  color: $blue;
+  @extend %transition;
+  &:focus,
+  &:hover {color: lighten($blue, 10%);}
+}
+.btn-blue,
+.btn-orange,
+.btn-white {
+  border-radius: $radius;
+  cursor: pointer;
+  @extend %transition;
+}
+.btn-blue,
+.btn-orange {color: #fff;}
+.btn-blue {
+  background: $blue;
+  &:focus,
+  &:hover {background: lighten($blue, 7%);}
+}
+.btn-orange {
+  background: $orange;
+  &:focus,
+  &:hover {background: lighten($orange, 7%);}
+}
+.btn-white {
+  background: #fff;
+  border: 0.1em solid #e9e9e9;
+  &:focus,
+  &:hover {
+    color: #ff9100;
+    border-color: $orange;
+  }
+}
+.angle-up {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  width: 70px;
+  height: 70px;
+  background: url(https://i.imgur.com/Sj6stoc.png) no-repeat;
+}
+.js-fixed {
+  position: fixed;
+  top: 0;
+  z-index: 3;
+}
+.js-active {z-index: 2;}
+.orange {
+  background: none;
+  color: $orange;
+}
+/*Navigation*/
+header {background: #fff;}
+i.fa-bars {
+  display: none;
+  @extend %transition;
+  @media screen and (max-width: 50em) {
+    display: inline-block;
+    float: right;
+    padding: .35em .40em;
+    font-size: 2.5em;
+    cursor: pointer;
+    &:focus,
+    &:hover {color: $orange;}
+    &:active {color: darken($orange, 7%);}
+  }
+}
+.nav-primary,
+.nav-login,
+.nav-secondary,
+.features-ul,
+.footer-ul {
+  display: flex;
+  flex-direction: row;
+}
+.nav-secondary {
+  @media screen and (max-width: 37.5em) {flex-direction: column;}
+}
+.nav-primary,
+.nav-login,
+.features-ul,
+.footer-ul {
+  @media screen and (max-width: 50em) {flex-direction: column;}
+}
+@media screen and (max-width: 50em) {
+  nav .bit-60,
+  nav .bit-40 {
+    width: 100%;
+  }
+  .nav-primary,
+  .nav-login {display: none;}
+}
+.nav-primary {
+  justify-content: flex-start;
+  @media screen and (max-width: 50em) {
+    width: 100%;
+    text-align: center;
+    float: left;
+  }
+}
+header .fa-angle-right,
+header .fa-angle-left {
+  padding: 0 .3em;
+  border-radius: 50%;
+}
+@media screen and (max-width: 50em) {
+  .nav-login {text-align: center;}
+}
+.nav-primary a,
+.nav-login a {
+  padding: 28px 9px;
+  @extend %transition;
+  &:focus,
+  &:hover {background: $grey;}
+  @media screen and (max-width: 50em) {
+    display: block;
+    padding: 0;
+  }
+}
+header a > i {@extend %transition;}
+.nav-primary a:hover i {
+  background: $orange;
+  color: #fff;
+}
+header .fa-angle-right {background: $grey;}
+header h1 {
+  float: left;
+  width: 200px;
+  height: 68px;
+  text-indent: 100%;
+  overflow: hidden;
+}
+.logo {
+  float: left;
+  height: 68px;
+  background-size: 80%;
+}
+.nav-login {justify-content: flex-end;}
+/*Main*/
+.sec-main {
+  background: url(https://i.imgur.com/0KyMXVU.jpg) no-repeat center center;
+  min-height: 30em;
+}
+@media screen and (min-width: 30em) {.sec-main .bit-75 {width: 100%;}}
+.main-content {
+  margin-top: 7%;
+  @media screen and (max-width: 50em) {margin-bottom: 7%;}
+}
+.form-outer {overflow-x: auto;}
+.sec-main form {
+  float: left;
+  margin-top: 3em;
+  @media screen and (min-width: 30em) {min-width: 745px;}
+}
+@media screen and (min-width: 30em) {form .bit-4 {width: 25%};}
+.devices-counter {
+  margin-top: .5em;
+  padding-top: 1.6em;
+  min-height: 5.5em;
+  border: .1em solid #ddd;
+  border-radius: $radius;
+  @media screen and (max-width: 50em) {padding-bottom: 1.6em;}
+}
+.sec-main input,
+.sec-main button {
+  display: block;
+  margin: auto;
+  border: 0;
+  outline: 0;
+}
+.sec-main input {text-align: center;}
+.sec-main button {padding: .25em .5em;}
+.sec-main .bit-4:nth-child(2),
+.sec-main .bit-4:nth-child(3) {padding-top: 2em;}
+.sec-main .bit-4:not(:first-child) button {
+  margin-top: .75em;
+  margin-bottom: .75em;
+  padding: .5em 0;
+  width: 80%;
+}
+.sec-main .bit-4:last-child {
+  padding-bottom: 1.5em;
+  border: .1em solid #ddd;
+  border-radius: $radius;
+}
+.sec-main input {
+  width: 55%;
+  background: none;
+}
+.sec-main .bit-4 .orange {margin-bottom: .3em;}
+.main-links {
+  float: left;
+  padding-top: .5em;
+}
+/*Features*/
+.sec-features h1 {margin-bottom: 1em;}
+.sec-features nav {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0px -1px 3px 0px #999, inset 0px -2px 0px 1px #e9e9e9;
+  @extend %transition;
+}
+.features-content {margin: 3em 0;}
+.sec-features .bit-1:first-of-type {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.nav-secondary {justify-content: center;}
+.nav-secondary li:not(:last-child) a {border-right: .1em solid $grey;}
+.nav-secondary a {
+  display: block;
+  padding: 1em .5em;
+  border-bottom: .2em solid $grey;
+  @extend %transition;
+  &:focus,
+  &:hover,
+  &:active {border-bottom: .2em solid $orange;}
+}
+.sec-features img {
+  display: block;
+  margin: auto;
+  width: 200px;
+}
+.features-ul {
+  justify-content: space-around;
+  margin-bottom: 5em;
+  @media screen and (max-width: 50em) {flex-direction: column;}
+}
+.ring {
+  position: relative;
+  width: 9em;
+  height: 9em;
+  background: $grey;
+  color: $grey;
+  border-radius: 50%;
+  @media screen and (max-width: 50em) {margin: auto;}
+}
+.features-ul li:first-child .ring,
+.features-ul li:nth-child(2) .ring,
+.features-ul li:last-child .ring {
+  background: $orange;
+}
+.features-ul li:nth-child(3),
+.features-ul li:nth-child(4),
+.features-ul li:nth-child(5) {opacity: .5;}
+@media screen and (max-width: 50em) {
+  .features-ul li:first-child,
+  .features-ul li:nth-child(2),
+  .features-ul li:nth-child(3),
+  .features-ul li:nth-child(4),
+  .features-ul li:nth-child(5) {margin-bottom: 2em;}
+}
+.features-ul img,
+.system img,
+.licensing img {
+  position: absolute;
+  width: 125px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.features-ul li:nth-child(2) img {width: 105px;}
+.features-ul li:nth-child(5) img {width: 88px;}
+.grimefighter h3 {margin: 1.5em 0;}
+.grimefighter p {padding: 0 .5em;}
+/*Technologies*/
+.technologies-outer {overflow-x: auto;}
+.technologies-content {min-width: 960px;}
+@media screen and (max-width: 50em) {
+  .technologies-content .bit-2 {width: 50%;}
+  .technologies-content .bit-3 {width: 33%;}
+  .technologies-content .bit-4 {width: 25%;}
+}
+.tech-slides {position: relative;}
+.slide-1,
+.slide-2,
+.slide-3 {
+  background: #fff;
+  @extend %transition;
+}
+.slide-1 {
+  position: relative;
+  z-index: 1;
+}
+.slide-2,
+.slide-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 465px;
+  opacity: 0;
+}
+[class^="slide"]:target {@extend %transition;opacity: 1;z-index: 2;}
+.technologies-content .tech-ul .bit-3:first-child h2 {padding-top: 1.35em;}
+.technologies-content .tech-ul .bit-3:first-child {padding-right: 0;}
+.technologies-content .tech-ul .bit-3:nth-child(2) {
+  padding-right: 0;
+  padding-left: 0;
+}
+.technologies-content .bit-3:last-child {padding-left: 0;}
+.technologies-content .bit-3 h2 {
+  padding-bottom: 1em;
+  border-bottom: .1em solid $grey;
+  cursor: pointer;
+  @extend %transition;
+  &:focus,
+  &:hover,
+  &:active {border-bottom-color: $orange;}
+}
+[class^="slide"] h3,
+[class^="slide"] p {padding: 0 .85em;}
+[class^="slide"] h3 {margin: 1.5em 0;}
+.technologies-content h2.selected {border-bottom-color: $orange;}
+/*System Requirements*/
+.system .ring,
+.licensing .ring {
+  margin: auto;
+  background: $orange;
+}
+.system ul {
+  margin-top: 2.8em;
+  @media screen and (max-width: 30em) {padding: 0 4em;}
+}
+/*Licensing*/
+.licensing h2 {margin: 1em 0;}
+.licensing button {
+  display: block;
+  margin: 1.5em auto 0;
+  padding: 12px;
+  width: 133px;
+}
+/*Paralax*/
+.sec-paralax {min-height: 348px;}
+/*Products*/
+.table-container {overflow-x: auto;}
+table {
+  width: 100%;
+  min-width: 950px;
+}
+th,
+td {
+  padding: .25em 0;
+  border-right: .5em solid #fff;
+  border-bottom: .1em solid #e9e9e9;
+}
+tr th:nth-child(4),
+tr td:nth-child(4) {background: #fff5e5;}
+.buttons td {
+  padding-top: 1em;
+  border-bottom: 0;
+}
+.buttons button {
+  display: block;
+  margin: auto;
+  padding: .5em 0;
+  width: 104px;
+  border: .1em solid $grey;
+  border-radius: $radius;
+  cursor: pointer;
+  @extend %transition;
+}
+.buttons .btn-blue {text-shadow: 1px 0 2px #333;}
+.ball {
+  margin: .25em auto 0;
+  width: 15px;
+  height: 15px;
+  background: $blue;
+  border-radius: 50%;
+}
+/*Minions*/
+.sec-minions {
+  background: $blue;
+  color: #fff;
+}
+.minions-container {overflow-x: auto;}
+.minions-inner {min-width: 960px;}
+.sec-minions .bit-8 {
+  position: relative;
+  height: 318px;
+}
+@media screen and (max-width: 30em) {
+  .sec-minions .bit-2 {width: 40%}
+  .sec-minions .bit-8 {width: 6.5%;}
+  .sec-minions .bit-75 {width: 75%;}
+}
+@media screen and (min-width: 30em) and (max-width: 50em) {
+  .sec-minions .bit-2 {width: 40%}
+  .sec-minions .bit-8 {width: 6.5%;}
+  .sec-minions .bit-75 {width: 75%;}
+}
+.sec-minions i {
+  position: absolute;
+  top: 35%;
+  font-size: 8em;
+  cursor: pointer;
+}
+.minions-ul {
+  position: relative;
+  height: 318px;
+}
+.minions-slide {
+  position: absolute;
+  float: left;
+}
+.minions-slide {background: $blue;}
+.minions-slide h3 {margin: 1.5em 0;}
+/*Footer*/
+footer {
+  padding: 1.5em 0 10em;
+  background: $dark-blue;
+}
+footer .bit-5 {
+  @media screen and (max-width: 30em) {margin-top: 1em;}
+  @media screen and (min-width: 30em) and (max-width: 50em) {width: 50%;}
+}
+footer h2,
+footer a,
+footer p {color: #86909d;}
+footer h2 {margin-bottom: .75em;}
+footer hr {
+  margin: 4em 0 1em;
+  height: 2px;
+  background: lighten($dark-blue, 5%);
+  border: 0;
+}
+footer a {
+  @extend %transition;
+  &:focus,
+  &:hover {color: $grey;}
+}
+.footer-ul {justify-content: flex-start;}
+.footer-icon {width: 20px;}
